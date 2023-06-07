@@ -1,22 +1,22 @@
-
-
-import './ChartBar.css'
+import classes from './ChartBar.module.css'
 
 const ChartBar = (props) => {
     let barFillHeigth = '0%';
 
     if (props.maxValue > 0) {
+       
         barFillHeigth = Math.round((props.value / props.maxValue) * 100) + "%";
+    
     }
 
     return (
-        <div className='chart-bar'>
-            <div className='chart-bar__inner'>
-                <div className='chart-bar__fill' 
+        <div className={classes['chart-bar']}>
+            <div className={classes['chart-bar__inner']}>
+                <div className={classes['chart-bar__fill']} 
                 style={{ height: barFillHeigth }}>
                 </div>
             </div>
-            <div className='chart-bar__label'>{props.label}</div>
+            <div className={classes['chart-bar__label']}>{props.label}</div>
         </div>
     )
 }

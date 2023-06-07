@@ -1,13 +1,13 @@
-
-import './Chart.css'
 import ChartBar from './ChartBar';
+import classes from './Chart.module.css';
 
 const Chart = (props) => {
 
     const dataPointsValueArray = props.dataPoints.map((dataPoint) => dataPoint.value);
+   
     const totalMaximum = Math.max(...dataPointsValueArray);
 
-    return (<div className='chart'>
+    return (<div className={classes.chart}>
         {props.dataPoints.map(dataPoint =>
         (<ChartBar key={dataPoint.label}
             value={dataPoint.value}

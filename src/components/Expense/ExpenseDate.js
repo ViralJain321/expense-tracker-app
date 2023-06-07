@@ -1,16 +1,18 @@
 
-import './ExpenseDate.css'
+import classes from './ExpenseDate.module.css'
 
 function ExpenseDate(props) {
-    const day = props.date.toLocaleString("en-US", { day: '2-digit' });
-    const month = props.date.toLocaleString('en-US', { month: 'long' });
-    const year = props.date.getFullYear();
+    const expDate = new Date(props.date);
+
+    const day = expDate.toLocaleString("en-US", { day: '2-digit' });
+    const month = expDate.toLocaleString('en-US', { month: 'long' });
+    const year = expDate.getFullYear();
 
     return (
-        <div className="expense-date">
-            <div className="expense-date__month">{month}</div>
-            <div className="expense-date__year">{year}</div>
-            <div className="expense-date__day">{day}</div>
+        <div className={classes["expense-date"]}>
+            <div className={classes["expense-date__month"]}>{month}</div>
+            <div className={classes["expense-date__year"]}>{year}</div>
+            <div className={classes["expense-date__day"]}>{day}</div>
         </div>
     )
 
